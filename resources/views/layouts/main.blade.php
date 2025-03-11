@@ -9,8 +9,13 @@
     <link rel="stylesheet" href= "{{ asset('css/bootstrap.min.css') }}">
 
 </head>
-<body>
+<body class="bg-body-tertiary">
+@include('partials.header')
+<main class="my-5">
+<div class="container">
  @yield('body')
+</div>
+</main>
 <script src = "{{ asset('js/bootstrap.bundle.min.js') }}" ></script>
 </body>
 </html>
