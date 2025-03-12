@@ -2,3 +2,4 @@
 <div class="bg-white rounded-3 shadow-sm p-4 ">
 {{$slot}}
 </div>
+
