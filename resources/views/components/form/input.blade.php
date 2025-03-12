@@ -1,12 +1,18 @@
 @props([
-    "type" => "text",
+    "type" =>"text",
     "name",
     "label",
-    "placeholder",
-    "error"=>"false"
+    "placeholder" => "",
+    "error" => false
 ])
+
+
 <div class="mb-3">
-    <label class="form-label" for="fio">Ваше Фио</label>
-    <input type="text" name="fio" id="fio" placeholder="ФИО" class="form-control">
-    <div class="invalid-feedback"></div>
+    @isset($label)
+        <label for="{{$name}}" class="form-label">{{$label}}</label>
+    @endisset
+    <input type="{{$type}}" name="{{$name}}" id="{{$name}}" placeholder="{{$placeholder}}" class="form-control" {{$attributes->merge(["class" => "form-control"])}}>
+    @isset($error)
+        <div class="invalid-feedback">{{$error}}</div>
+    @endisset
 </div>
