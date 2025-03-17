@@ -7,6 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
+    'App\\Http\\Controllers\\RegisterController' => $baseDir . '/app/Http/Controllers/RegisterController.php',
+    'App\\Http\\Requests\\User\\LoginRequest' => $baseDir . '/app/Http/Requests/User/LoginRequest.php',
+    'App\\Http\\Requests\\User\\RegisterRequest' => $baseDir . '/app/Http/Requests/User/RegisterRequest.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'ArchTech\\Enums\\Comparable' => $vendorDir . '/archtechx/enums/src/Comparable.php',

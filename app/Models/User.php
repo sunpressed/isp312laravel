@@ -11,18 +11,18 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-//    protected $table = 'users';
-
+//  protected $table = 'users';
 
     protected $fillable = [
-        'FIO',
+        'fio',
         'email',
         'birthday',
         'password',
     ];
 
 //    protected $guarded = [
-//        ];
+//
+//    ];
 
 
     protected $hidden = [
@@ -30,12 +30,12 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-//public $timestamps = false;
+//  public $timestamps = false;
 
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
+            'birthday' => 'date',
             'password' => 'hashed',
         ];
     }

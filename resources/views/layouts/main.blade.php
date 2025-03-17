@@ -13,11 +13,10 @@
 @include('partials.header')
 
 <main class="my-5">
-    <div class="container">
-    @yield('body')
-    </div>
+    <div class="container">@yield('body')</div>
 </main>
 
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.bundle.min.js.map') }}"></script>
+
 </body>
 </html>
