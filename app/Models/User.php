@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -11,7 +12,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-//  protected $table = 'users';
+//    protected $table = 'users';
 
     protected $fillable = [
         'fio',
@@ -24,13 +25,12 @@ class User extends Authenticatable
 //
 //    ];
 
-
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-//  public $timestamps = false;
+//    public $timestamps = false;
 
     protected function casts(): array
     {
@@ -38,5 +38,10 @@ class User extends Authenticatable
             'birthday' => 'date',
             'password' => 'hashed',
         ];
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }

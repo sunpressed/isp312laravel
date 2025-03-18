@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\LoginRequest;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +13,7 @@ class LoginController extends Controller
         return view("login");
     }
 
-    public function login(LoginRequest $request){
+    public function login(LoginRequest $request) {
         $data = $request->validated();
 //        dd($data);
 
@@ -22,7 +21,7 @@ class LoginController extends Controller
             //Пользователь авторизован
             return redirect()->route("profile.index");
         } else {
-            //Отправлен неверный логин или пароль
+            // Отправлен неверный логин или пароль
             return redirect()->back()->withErrors([
                 "email" => " ",
                 "password" => "Неверный логин или пароль!"
