@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateOrderRequest;
+use App\Models\Category;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,4 +34,18 @@ class OrderController extends Controller
             abort(400);
         }
     }
-}
+
+    public function create(User $users) {
+        $categories = Category::all();
+        return view("createorder", compact( "categories"));
+    }
+
+    public function store(CreateOrderRequest $request) {
+        $order = new Order();
+        $order->category_id = $request->input('category_id');
+        $order->description = $request->input('description');
+        $order->user_id = Auth::id();
+        $order->save();
+        return redirect()->back();
+    }
+};

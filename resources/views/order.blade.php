@@ -1,10 +1,10 @@
 @extends("layouts.main")
 
-@section('title', 'Заказы')
-
 @section('body')
 
-    <x-box>
+    <x-box link="Добавить заказ" :href="route('register.index')">
+@section('title', 'Заказы')
+
         <div class="row text-center">
             <div class="col-sm-4 col-lg-2"><strong>Изображение</strong></div>
             <div class="col-sm-8 col-lg-4"><strong>Заказ</strong></div>
@@ -41,7 +41,8 @@
                     {{ $order->created_at->format("d.m.Y H:i") }}
                 </div>
                 <div class="col-12 col-lg-2 text-center">
-                    <a href="#" class="btn btn-outline-primary btn-sm">Посмотреть</a>
+                    <a href="{{ route("orders", ["order" => $order->id]) }}" class="btn btn-outline-primary btn-sm" > Посмотреть</a>
+
                     <a href="{{ route("orders.destroy", ["order" => $order->id]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Вы уверены, что хотите удалить данный заказ?')">Удалить</a>
                 </div>
             </div>

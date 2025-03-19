@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProsmotrController;
+
 
 //Route::get('/', function () {
 //    return view('index');
@@ -36,7 +38,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [OrderController::class, "index"])->name("index");
         Route::get('/destroy/{order}', [OrderController::class, "destroy"])->whereNumber("order")->name("destroy");
     });
+    Route::get('/orders/create', [OrderController::class, "create"])->name("orders.create");
+    Route::post('/orders/store', [OrderController::class, "store"])->name("orders.store");
 });
+
 
 
 
