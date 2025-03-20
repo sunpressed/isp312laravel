@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section('title', 'просмотр')
+@section('title', 'Личный кабинет')
 
 @section('body')
 

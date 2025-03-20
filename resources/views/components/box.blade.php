@@ -8,9 +8,13 @@
             @endempty
         </h1>
     </div>
-    <div class="col-2 text-end">
-        <a href="#" class="btn btn-primary btn-sm">Добавить заказ</a>
-    </div>
+    @isset($link)
+        @isset($href)
+            <div class="col-2 text-end">
+                <a href="{{$href}}" class="btn btn-primary btn-sm">{{$link}}</a>
+            </div>
+        @endisset
+    @endisset
 </div>
 <div class="bg-white rounded-3 shadow-sm p-4">
     {{ $slot }}
